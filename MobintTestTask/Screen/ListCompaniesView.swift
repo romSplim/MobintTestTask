@@ -108,7 +108,7 @@ extension ListCompaniesView: ListCompaniesViewProtocol {
     func reloadTable() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            print("github")
+            print("github sila")
         }
     }
 }
