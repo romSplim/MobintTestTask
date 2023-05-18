@@ -10,16 +10,16 @@ import Foundation
 typealias HTTPHeaders = [String: String]
 
 enum APIManager {
-    case getAllCompanies
-    case getAllCompaniesIdeal
-    case getAllCompaniesLong
-    case getAllCompaniesError
+    case getAllCompanies(offset: Int)
+    case getAllCompaniesIdeal(offset: Int)
+    case getAllCompaniesLong(offset: Int)
+    case getAllCompaniesError(offset: Int)
     
     private var baseUrl: String {
         return "http://dev.bonusmoney.pro/mobileapp"
     }
     
-    var path: String {
+    private var path: String {
         switch self {
         case .getAllCompanies:
             return "/getAllCompanies"
@@ -32,13 +32,13 @@ enum APIManager {
         }
     }
     
-    var url: URL {
+    private var url: URL {
         guard let url = URL(string: baseUrl + path) else {
         preconditionFailure("Invalid URL")}
         return url
     }
     
-    var method: HTTPMethod {
+    private var method: HTTPMethod {
         switch self {
         case .getAllCompanies,
                 .getAllCompaniesIdeal,
@@ -48,13 +48,20 @@ enum APIManager {
         }
     }
     
-    func httpBody() -> Data? {
-        let body: [String: Any] = ["offset": 2]
-        let bodyData = try? JSONSerialization.data(withJSONObject: body)
-        return bodyData
+    private var httpBody: Data? {
+        switch self {
+        case .getAllCompanies(let offset),
+                .getAllCompaniesIdeal(let offset),
+                .getAllCompaniesLong(let offset),
+                .getAllCompaniesError(let offset):
+            
+            let body: [String: Any] = ["offset": offset]
+            let bodyData = try? JSONSerialization.data(withJSONObject: body)
+            return bodyData
+        }
     }
     
-    var headers: HTTPHeaders {
+    private var headers: HTTPHeaders {
         return ["TOKEN": "123"]
     }
     
@@ -62,7 +69,7 @@ enum APIManager {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
-        request.httpBody = httpBody()
+        request.httpBody = httpBody
         return request
     }
 }

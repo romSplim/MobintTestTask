@@ -11,7 +11,6 @@ final class TitleView: UIStackView {
 
     lazy var titleLabel: UILabel = {
         var label = UILabel()
-        label.text = "Молочное пиво"
         label.font = Font.title
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

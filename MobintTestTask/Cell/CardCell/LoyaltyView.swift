@@ -112,14 +112,13 @@ final class LoyaltyView: UIStackView {
     func configure(with company: CompanyCard) {
         let loyaltyModel = company.customerMarkParameters.loyaltyLevel
         points = company.customerMarkParameters.mark
-        print(points)
         pointsAmountLabel.text = "\(points)"
-        cashBackAmountLabel.text = "\(loyaltyModel.cashToMark)"
+        cashBackAmountLabel.text = "\(loyaltyModel.cashToMark) %"
         loyaltyLabel.text = loyaltyModel.name
     }
     
-    private func updateWordEnding(for text: inout String?, point: Int) {
-        text = .getRightWordEnding(for: point) ?? ""
+    private func updateWordEnding(for word: inout String?, point: Int) {
+        word = .getRightWordEnding(for: point) ?? ""
     }
     
     private func setupSubviews() {

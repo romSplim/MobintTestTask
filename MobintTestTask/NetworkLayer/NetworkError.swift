@@ -17,7 +17,7 @@ enum NetworkError: Error {
     var message: String {
         switch self {
         case .decoderError:
-            return "Ошибка"
+            return "Ошибка декодирования"
         case .unauthorized:
             return "Ошибка авторизации"
         case .badRequest(let message):

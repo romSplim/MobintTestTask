@@ -10,7 +10,7 @@ import UIKit
 fileprivate enum Constants {
     static let tinyButtonScale: CGFloat = 0.8
     static let tinyButtonSize: CGSize = .init(width: 25, height: 25)
-    static let moreButtonSize: CGSize = .init(width: 40, height: 120)
+    static let moreButtonSize: CGSize = .init(width: 120, height: 40)
     static let moreButtonTitle = "Подробнее"
 }
 

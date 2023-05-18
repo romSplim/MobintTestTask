@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let builder = ModuleBuilder()
         let listCompaniesView = builder.buildListCompaniesModule()
         window = UIWindow(windowScene: scene)
+        window?.overrideUserInterfaceStyle = .light
         window?.rootViewController = listCompaniesView
         window?.makeKeyAndVisible()
     }

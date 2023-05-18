@@ -13,7 +13,7 @@ final class NetworkFetcher {
     
     private init() {}
     
-    func fetchCompanies(with request: URLRequest, completion: @escaping (Result<[CompanyCard]?, NetworkError>) -> Void) {
+    func fetchCompanies(with request: URLRequest, completion: @escaping (Result<[CompanyCard], NetworkError>) -> Void) {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse {
@@ -33,7 +33,7 @@ final class NetworkFetcher {
         }
     }
     
-    func handleResponse(response: HTTPURLResponse, data: Data?, completion: (Result<[CompanyCard]?, NetworkError>) -> Void) {
+    func handleResponse(response: HTTPURLResponse, data: Data?, completion: (Result<[CompanyCard], NetworkError>) -> Void) {
         switch response.statusCode {
         case 200..<300:
             guard let data,

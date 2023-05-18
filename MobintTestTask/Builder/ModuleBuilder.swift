@@ -7,7 +7,11 @@
 
 import UIKit
 
-class ModuleBuilder {
+protocol ModuleBuilderProtocol {
+    func buildListCompaniesModule() -> UIViewController
+}
+
+final class ModuleBuilder: ModuleBuilderProtocol {
     func buildListCompaniesModule() -> UIViewController {
         let controller = ListCompaniesView()
         let imageService = ImageService()
