@@ -9,20 +9,23 @@ import UIKit
 
 protocol ListCompaniesViewProtocol: AnyObject {
     func reloadTable()
+    func showLoadingProcess()
     func stopLoadingProcess()
+    func presentAlert(_ message: String)
 }
 
 final class ListCompaniesView: UIViewController {
+    
     //MARK: - Properties
     var presenter: ListCompaniesPresenter?
-    var tableFooterView = LoadingHeaderFooterView()
     
     //MARK: - Private properties
+    private var tableFooterView = LoadingHeaderFooterView()
+    
     private lazy var tableView: UITableView = {
         var tableView = UITableView()
         tableView.register(CardCell.self, forCellReuseIdentifier: CardCell.identifier)
         tableView.register(LoadingHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "reusable")
-        tableView.tableFooterView = tableFooterView
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = .systemGroupedBackground
@@ -36,16 +39,34 @@ final class ListCompaniesView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
+        setupNavbar()
         view.backgroundColor = .systemGroupedBackground
         presenter?.loadInitialCompanies()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableFooterView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
+        tableFooterView.frame = CGRect(x: 0,
+                                       y: 0,
+                                       width: tableView.frame.width,
+                                       height: 50)
     }
     
     //MARK: - Private methods
+    
+    private func setupNavbar() {
+        self.title = "Управление картами"
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.titleTextAttributes = [.foregroundColor : UIColor.systemBlue]
+            appearance.backgroundColor = .white
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            navigationController?.navigationBar.standardAppearance = appearance
+        } else {
+            
+        }
+    }
+    
     private func setupSubviews() {
         view.addSubview(tableView)
         
@@ -60,25 +81,15 @@ final class ListCompaniesView: UIViewController {
 
 //MARK: - UITableViewDelegate
 extension ListCompaniesView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentHeight = scrollView.contentSize.height
-        let visibleHeight = scrollView.bounds.height
-        let scrollOffset = scrollView.contentOffset.y
-        let currentPosition = scrollOffset + visibleHeight
-        
-        if currentPosition >= contentHeight {
-            presenter?.loadNextCompanies()
-            tableFooterView.showLoadingProcess()
-        }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        presenter?.triggerPaginationLoading(by: indexPath)
     }
 }
 
 //MARK: - UITableViewDataSource
 extension ListCompaniesView: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return presenter?.getCompaniesCount() ?? 0
@@ -99,6 +110,16 @@ extension ListCompaniesView: UITableViewDataSource {
 
 //MARK: - ListCompaniesViewProtocol
 extension ListCompaniesView: ListCompaniesViewProtocol {
+    func showLoadingProcess() {
+        DispatchQueue.main.async {
+            self.tableView.tableFooterView = self.tableFooterView
+        }
+    }
+    
+    func presentAlert(_ message: String) {
+        popupAlert(message: message)
+    }
+    
     func stopLoadingProcess() {
         DispatchQueue.main.async {
             self.tableView.tableFooterView = nil
@@ -108,7 +129,6 @@ extension ListCompaniesView: ListCompaniesViewProtocol {
     func reloadTable() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            print("github sila")
         }
     }
 }
@@ -116,8 +136,8 @@ extension ListCompaniesView: ListCompaniesViewProtocol {
 //MARK: - CardCellDelegate
 extension ListCompaniesView: CardCellDelegate {
     func didTappedButton(_ buttonType: CardCell.ButtonType) {
-        guard let alertMessage = presenter?.getButtonName(from: buttonType) else { return }
-        popupAlert(title: "Alert", message: "Вы нажали кнопку - \(alertMessage)")
+        guard let buttonName = presenter?.getButtonName(from: buttonType) else { return }
+        popupAlert(message: "Вы нажали кнопку - \(buttonName)")
     }
 }
 

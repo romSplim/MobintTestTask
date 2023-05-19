@@ -10,9 +10,10 @@ import Foundation
 final class NetworkFetcher {
     
     static let shared = NetworkFetcher()
-    
+    //MARK: - Private init
     private init() {}
     
+    //MARK: - Methods
     func fetchCompanies(with request: URLRequest, completion: @escaping (Result<[CompanyCard], NetworkError>) -> Void) {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -21,19 +22,9 @@ final class NetworkFetcher {
             }
         }.resume()
     }
-        
-    private func decodeJSON<T: Decodable>(type: T.Type, from data: Data) throws -> T? {
     
-        do {
-            let decoder = JSONDecoder()
-            let jsonData = try decoder.decode(type, from: data)
-            return jsonData
-        } catch {
-            return nil
-        }
-    }
-    
-    func handleResponse(response: HTTPURLResponse, data: Data?, completion: (Result<[CompanyCard], NetworkError>) -> Void) {
+    //MARK: - Private methods
+    private func handleResponse(response: HTTPURLResponse, data: Data?, completion: (Result<[CompanyCard], NetworkError>) -> Void) {
         switch response.statusCode {
         case 200..<300:
             guard let data,
@@ -45,7 +36,7 @@ final class NetworkFetcher {
         case 400:
             guard let data,
                   let errorJson = try? decodeJSON(type: ErrorModel.self,
-                                             from: data) else {
+                                                  from: data) else {
                 completion(.failure(.decoderError))
                 return
             }
@@ -57,6 +48,16 @@ final class NetworkFetcher {
             completion(.failure(.serverIssue))
         default:
             completion(.failure(.unknownError))
+        }
+    }
+        
+    private func decodeJSON<T: Decodable>(type: T.Type, from data: Data) throws -> T? {
+        do {
+            let decoder = JSONDecoder()
+            let jsonData = try decoder.decode(type, from: data)
+            return jsonData
+        } catch {
+            return nil
         }
     }
 }

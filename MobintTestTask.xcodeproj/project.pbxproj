@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		95C57BE12A15F535003BB217 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57BE02A15F535003BB217 /* UIViewController+Extension.swift */; };
-		95C57BE52A160019003BB217 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57BE42A160019003BB217 /* LoadingCell.swift */; };
 		95C57BE72A160883003BB217 /* LoadingHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57BE62A160883003BB217 /* LoadingHeaderFooterView.swift */; };
 		95DB60842A0A26D2002A43B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB60832A0A26D2002A43B2 /* AppDelegate.swift */; };
 		95DB60862A0A26D2002A43B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB60852A0A26D2002A43B2 /* SceneDelegate.swift */; };
@@ -20,7 +19,7 @@
 		95DB609E2A0A286A002A43B2 /* NetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB609D2A0A286A002A43B2 /* NetworkFetcher.swift */; };
 		95DB60A12A0A3447002A43B2 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB60A02A0A3447002A43B2 /* HTTPMethod.swift */; };
 		95DB60A52A0A5897002A43B2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB60A42A0A5897002A43B2 /* NetworkError.swift */; };
-		95DB60A82A0A7010002A43B2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB60A72A0A7010002A43B2 /* Model.swift */; };
+		95DB60A82A0A7010002A43B2 /* CompanyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB60A72A0A7010002A43B2 /* CompanyCard.swift */; };
 		95DB60AB2A0BB400002A43B2 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB60AA2A0BB400002A43B2 /* CardCell.swift */; };
 		95DB60AD2A0BB42B002A43B2 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB60AC2A0BB42B002A43B2 /* UITableViewCell+Extension.swift */; };
 		95DB60AF2A0BB897002A43B2 /* ListCompaniesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB60AE2A0BB897002A43B2 /* ListCompaniesPresenter.swift */; };
@@ -39,7 +38,6 @@
 
 /* Begin PBXFileReference section */
 		95C57BE02A15F535003BB217 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		95C57BE42A160019003BB217 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		95C57BE62A160883003BB217 /* LoadingHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHeaderFooterView.swift; sourceTree = "<group>"; };
 		95DB60802A0A26D2002A43B2 /* MobintTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobintTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DB60832A0A26D2002A43B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +51,7 @@
 		95DB609D2A0A286A002A43B2 /* NetworkFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetcher.swift; sourceTree = "<group>"; };
 		95DB60A02A0A3447002A43B2 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		95DB60A42A0A5897002A43B2 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		95DB60A72A0A7010002A43B2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		95DB60A72A0A7010002A43B2 /* CompanyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCard.swift; sourceTree = "<group>"; };
 		95DB60AA2A0BB400002A43B2 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		95DB60AC2A0BB42B002A43B2 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		95DB60AE2A0BB897002A43B2 /* ListCompaniesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCompaniesPresenter.swift; sourceTree = "<group>"; };
@@ -90,14 +88,6 @@
 				95DB60B42A0BCDCB002A43B2 /* ActionView.swift */,
 			);
 			path = CardCell;
-			sourceTree = "<group>";
-		};
-		95C57BE32A15FFFC003BB217 /* LoadingCell */ = {
-			isa = PBXGroup;
-			children = (
-				95C57BE42A160019003BB217 /* LoadingCell.swift */,
-			);
-			path = LoadingCell;
 			sourceTree = "<group>";
 		};
 		95DB60772A0A26D2002A43B2 = {
@@ -167,8 +157,8 @@
 			children = (
 				95DB609B2A0A2859002A43B2 /* APIManager.swift */,
 				95DB60A02A0A3447002A43B2 /* HTTPMethod.swift */,
-				95DB609D2A0A286A002A43B2 /* NetworkFetcher.swift */,
 				95DB60A42A0A5897002A43B2 /* NetworkError.swift */,
+				95DB609D2A0A286A002A43B2 /* NetworkFetcher.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -176,9 +166,9 @@
 		95DB609F2A0A2888002A43B2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				95DB60C52A0E3F8D002A43B2 /* String+Extension.swift */,
 				95DB60AC2A0BB42B002A43B2 /* UITableViewCell+Extension.swift */,
 				95DB60BD2A0D15CC002A43B2 /* UIView+Extension.swift */,
-				95DB60C52A0E3F8D002A43B2 /* String+Extension.swift */,
 				95C57BE02A15F535003BB217 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
@@ -187,7 +177,7 @@
 		95DB60A62A0A6AEA002A43B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				95DB60A72A0A7010002A43B2 /* Model.swift */,
+				95DB60A72A0A7010002A43B2 /* CompanyCard.swift */,
 				95F438162A10F19F006F3EC2 /* ErrorModel.swift */,
 			);
 			path = Model;
@@ -196,7 +186,6 @@
 		95DB60A92A0BB3A3002A43B2 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				95C57BE32A15FFFC003BB217 /* LoadingCell */,
 				95C57BE22A15FFED003BB217 /* CardCell */,
 				95C57BE62A160883003BB217 /* LoadingHeaderFooterView.swift */,
 			);
@@ -206,9 +195,9 @@
 		95DB60B62A0BCF91002A43B2 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
-				95DB60B72A0BCFB7002A43B2 /* Layout.swift */,
-				95DB60B92A0CD9EF002A43B2 /* Font.swift */,
 				95DB60BB2A0CE9CA002A43B2 /* AssetName.swift */,
+				95DB60B92A0CD9EF002A43B2 /* Font.swift */,
+				95DB60B72A0BCFB7002A43B2 /* Layout.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -304,7 +293,7 @@
 				95DB60B52A0BCDCB002A43B2 /* ActionView.swift in Sources */,
 				95DB60BC2A0CE9CA002A43B2 /* AssetName.swift in Sources */,
 				95DB60C12A0E097F002A43B2 /* ImageLoader.swift in Sources */,
-				95DB60A82A0A7010002A43B2 /* Model.swift in Sources */,
+				95DB60A82A0A7010002A43B2 /* CompanyCard.swift in Sources */,
 				95DB60882A0A26D2002A43B2 /* ListCompaniesView.swift in Sources */,
 				95DB60AF2A0BB897002A43B2 /* ListCompaniesPresenter.swift in Sources */,
 				95DB60B32A0BCD51002A43B2 /* LoyaltyView.swift in Sources */,
@@ -315,7 +304,6 @@
 				95DB60A12A0A3447002A43B2 /* HTTPMethod.swift in Sources */,
 				95DB609E2A0A286A002A43B2 /* NetworkFetcher.swift in Sources */,
 				95DB60C42A0E1FA5002A43B2 /* ModuleBuilder.swift in Sources */,
-				95C57BE52A160019003BB217 /* LoadingCell.swift in Sources */,
 				95DB60C62A0E3F8D002A43B2 /* String+Extension.swift in Sources */,
 				95DB60AB2A0BB400002A43B2 /* CardCell.swift in Sources */,
 				95DB60AD2A0BB42B002A43B2 /* UITableViewCell+Extension.swift in Sources */,
@@ -400,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -454,7 +442,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

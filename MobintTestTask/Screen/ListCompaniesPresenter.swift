@@ -72,9 +72,10 @@ final class ListCompaniesPresenter: ListCompaniesPresenterProtocol {
     func loadNextCompanies() {
         guard !isDataLoading && isNeededToLoadNextCompanies else { return }
         isDataLoading = true
-        print("REQUEST SENDED")
-        let request = APIManager.getAllCompaniesIdeal(offset: offset).request()
-        networkFetcher.fetchCompanies(with: request) { result in
+    
+        let requestIdeal = APIManager.getAllCompaniesIdeal(offset: offset).request()
+        let requestLong = APIManager.getAllCompaniesLong(offset: offset).request()
+        networkFetcher.fetchCompanies(with: requestLong) { result in
             
             defer { self.isDataLoading = false }
             
@@ -89,8 +90,16 @@ final class ListCompaniesPresenter: ListCompaniesPresenterProtocol {
                 }
                 
             case .failure(let failure):
-                print(failure.message)
+                self.view?.presentAlert(failure.message)
             }
+        }
+    }
+    
+    func triggerPaginationLoading(by indexPath: IndexPath) {
+        let lastElement = offset - 1
+        if indexPath.row == lastElement {
+            loadNextCompanies()
+            self.view?.showLoadingProcess()
         }
     }
     

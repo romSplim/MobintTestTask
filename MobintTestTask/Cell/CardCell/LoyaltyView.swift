@@ -9,28 +9,28 @@ import UIKit
 
 final class LoyaltyView: UIStackView {
     
+    //MARK: - Properties
     private(set) var points: Int = 0 {
         didSet {
             updateWordEnding(for: &pointsLabel.text, point: points)
         }
     }
     
-    var pointsAmountLabel: UILabel = {
+    private var pointsAmountLabel: UILabel = {
         var label = UILabel()
-        label.text = "13 467"
         label.font = Font.title
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var pointsLabel: UILabel = {
+    private var pointsLabel: UILabel = {
         var label = UILabel()
         label.font = Font.subtitle
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cashBackLabel: UILabel = {
+    private var cashBackLabel: UILabel = {
         var label = UILabel()
         label.text = "Кешбэк"
         label.font = Font.regular
@@ -38,7 +38,7 @@ final class LoyaltyView: UIStackView {
         return label
     }()
     
-    var cashBackAmountLabel: UILabel = {
+    private var cashBackAmountLabel: UILabel = {
         var label = UILabel()
         label.text = "100%"
         label.font = Font.subtitle
@@ -46,7 +46,7 @@ final class LoyaltyView: UIStackView {
         return label
     }()
     
-    var loyaltyLevelLabel: UILabel = {
+    private var loyaltyLevelLabel: UILabel = {
         var label = UILabel()
         label.text = "Уровень"
         label.font = Font.regular
@@ -54,7 +54,7 @@ final class LoyaltyView: UIStackView {
         return label
     }()
     
-    var loyaltyLabel: UILabel = {
+    private var loyaltyLabel: UILabel = {
         var label = UILabel()
         label.font = Font.subtitle
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -96,6 +96,7 @@ final class LoyaltyView: UIStackView {
         return stack
     }()
     
+    //MARK: - Init
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -109,6 +110,7 @@ final class LoyaltyView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Methods
     func configure(with company: CompanyCard) {
         let loyaltyModel = company.customerMarkParameters.loyaltyLevel
         points = company.customerMarkParameters.mark
@@ -117,6 +119,7 @@ final class LoyaltyView: UIStackView {
         loyaltyLabel.text = loyaltyModel.name
     }
     
+    //MARK: - Private methods
     private func updateWordEnding(for word: inout String?, point: Int) {
         word = .getRightWordEnding(for: point) ?? ""
     }

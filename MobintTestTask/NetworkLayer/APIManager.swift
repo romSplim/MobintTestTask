@@ -15,6 +15,7 @@ enum APIManager {
     case getAllCompaniesLong(offset: Int)
     case getAllCompaniesError(offset: Int)
     
+    //MARK: - Private properties
     private var baseUrl: String {
         return "http://dev.bonusmoney.pro/mobileapp"
     }
@@ -34,7 +35,8 @@ enum APIManager {
     
     private var url: URL {
         guard let url = URL(string: baseUrl + path) else {
-        preconditionFailure("Invalid URL")}
+            preconditionFailure("Invalid URL")
+        }
         return url
     }
     
@@ -65,6 +67,7 @@ enum APIManager {
         return ["TOKEN": "123"]
     }
     
+    //MARK: - Methods
     func request() -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue

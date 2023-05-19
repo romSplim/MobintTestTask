@@ -12,9 +12,10 @@ protocol CardCellDelegate: AnyObject {
 }
 
 final class CardCell: UITableViewCell {
-    
+    //MARK: - Properties
     weak var delegate: CardCellDelegate?
     
+    //MARK: - Private properties
     private let roundedContainerView = UIView()
     private let titleView = TitleView()
     private let loyaltyView = LoyaltyView()
@@ -41,6 +42,7 @@ final class CardCell: UITableViewCell {
         return stack
     }()
     
+    //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupSeporators()
@@ -54,6 +56,7 @@ final class CardCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Methods
     func configure(with company: CompanyCard) {
         let companyName = company.mobileAppDashboard.companyName
         titleView.setCompanyName(companyName)
@@ -64,6 +67,7 @@ final class CardCell: UITableViewCell {
         titleView.setCompanyLogo(image)
     }
     
+    //MARK: - Private methods
     private func handleButtonAction() {
         actionView.onButtonTap = { [weak self] button in
             guard let buttonType = ButtonType(rawValue: button.tag) else { return
@@ -105,6 +109,7 @@ final class CardCell: UITableViewCell {
     }
 }
 
+//MARK: - ButtonType
 extension CardCell {
     public enum ButtonType: Int {
         case sight = 1, trash, more

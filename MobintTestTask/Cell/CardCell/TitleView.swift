@@ -9,6 +9,7 @@ import UIKit
 
 final class TitleView: UIStackView {
 
+    //MARK: - Properties
     lazy var titleLabel: UILabel = {
         var label = UILabel()
         label.font = Font.title
@@ -18,13 +19,13 @@ final class TitleView: UIStackView {
     
     lazy var logoImage: UIImageView = {
         var imageView = UIImageView()
-        imageView.backgroundColor = .red
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
+    //MARK: - Init
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -35,11 +36,13 @@ final class TitleView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Lifecycle
     override func layoutSubviews() {
         super.layoutSubviews()
         logoImage.layer.cornerRadius = logoImage.bounds.height / 2
     }
     
+    //MARK: - Methods
     func setCompanyName(_ text: String) {
         titleLabel.text = text
     }
@@ -48,11 +51,14 @@ final class TitleView: UIStackView {
         logoImage.image = image
     }
     
+    //MARK: - Private methods
     private func setupSubviews() {
         addArrangedSubview(titleLabel)
         addArrangedSubview(logoImage)
         
-        logoImage.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        logoImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        NSLayoutConstraint.activate([
+            logoImage.heightAnchor.constraint(equalToConstant: 40),
+            logoImage.widthAnchor.constraint(equalToConstant: 40)
+        ])
     }
 }

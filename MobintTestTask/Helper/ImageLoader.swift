@@ -8,9 +8,10 @@
 import UIKit
 
 final class ImageService {
-    
+    //MARK: - Private properties
     private let cache = NSCache<NSNumber, UIImage>()
     
+    //MARK: - Methods
     func loadImage(url: String, indexPath: IndexPath, completion: @escaping (UIImage?) -> Void) {
         
         guard let url = URL(string: url) else { return }

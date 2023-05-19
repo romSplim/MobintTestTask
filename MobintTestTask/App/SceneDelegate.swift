@@ -11,14 +11,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         let builder = ModuleBuilder()
         let listCompaniesView = builder.buildListCompaniesModule()
+        let navBar = UINavigationController(rootViewController: listCompaniesView)
         window = UIWindow(windowScene: scene)
         window?.overrideUserInterfaceStyle = .light
-        window?.rootViewController = listCompaniesView
+        window?.rootViewController = navBar
         window?.makeKeyAndVisible()
     }
 }

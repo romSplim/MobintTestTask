@@ -12,6 +12,7 @@ protocol ModuleBuilderProtocol {
 }
 
 final class ModuleBuilder: ModuleBuilderProtocol {
+    //MARK: - Methods
     func buildListCompaniesModule() -> UIViewController {
         let controller = ListCompaniesView()
         let imageService = ImageService()
