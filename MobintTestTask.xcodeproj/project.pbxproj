@@ -111,7 +111,7 @@
 			children = (
 				95DB60972A0A2758002A43B2 /* App */,
 				95DB60C22A0E1F8E002A43B2 /* Builder */,
-				95DB60A92A0BB3A3002A43B2 /* Cell */,
+				95DB60A92A0BB3A3002A43B2 /* CustomView */,
 				95DB60B62A0BCF91002A43B2 /* Constant */,
 				95DB609F2A0A2888002A43B2 /* Extension */,
 				95DB60BF2A0E096C002A43B2 /* Helper */,
@@ -183,13 +183,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		95DB60A92A0BB3A3002A43B2 /* Cell */ = {
+		95DB60A92A0BB3A3002A43B2 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				95C57BE22A15FFED003BB217 /* CardCell */,
 				95C57BE62A160883003BB217 /* LoadingHeaderFooterView.swift */,
 			);
-			path = Cell;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		95DB60B62A0BCF91002A43B2 /* Constant */ = {

@@ -73,9 +73,8 @@ final class ListCompaniesPresenter: ListCompaniesPresenterProtocol {
         guard !isDataLoading && isNeededToLoadNextCompanies else { return }
         isDataLoading = true
     
-        let requestIdeal = APIManager.getAllCompaniesIdeal(offset: offset).request()
-        let requestLong = APIManager.getAllCompaniesLong(offset: offset).request()
-        networkFetcher.fetchCompanies(with: requestLong) { result in
+        let requestIdeal = APIManager.getAllCompanies(offset: offset).request()
+        networkFetcher.fetchCompanies(with: requestIdeal) { result in
             
             defer { self.isDataLoading = false }
             

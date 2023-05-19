@@ -117,7 +117,9 @@ extension ListCompaniesView: ListCompaniesViewProtocol {
     }
     
     func presentAlert(_ message: String) {
-        popupAlert(message: message)
+        DispatchQueue.main.async {
+            self.popupAlert(message: message)
+        }
     }
     
     func stopLoadingProcess() {
