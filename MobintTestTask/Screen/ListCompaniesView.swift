@@ -14,6 +14,10 @@ protocol ListCompaniesViewProtocol: AnyObject {
     func presentAlert(_ message: String)
 }
 
+fileprivate enum Constants {
+   static let screenTitle = "Управление картами"
+}
+
 final class ListCompaniesView: UIViewController {
     
     //MARK: - Properties
@@ -53,17 +57,14 @@ final class ListCompaniesView: UIViewController {
     }
     
     //MARK: - Private methods
-    
     private func setupNavbar() {
-        self.title = "Управление картами"
+        self.title = Constants.screenTitle
         if #available(iOS 15.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.titleTextAttributes = [.foregroundColor : UIColor.systemBlue]
             appearance.backgroundColor = .white
             navigationController?.navigationBar.scrollEdgeAppearance = appearance
             navigationController?.navigationBar.standardAppearance = appearance
-        } else {
-            
         }
     }
     

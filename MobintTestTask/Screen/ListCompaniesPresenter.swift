@@ -54,7 +54,7 @@ final class ListCompaniesPresenter: ListCompaniesPresenterProtocol {
     }
     
     func loadInitialCompanies() {
-        let request = APIManager.getAllCompaniesIdeal(offset: offset).request()
+        let request = APIManager.getAllCompanies(offset: offset).request()
         networkFetcher.fetchCompanies(with: request) { result in
             
             switch result {
@@ -73,8 +73,8 @@ final class ListCompaniesPresenter: ListCompaniesPresenterProtocol {
         guard !isDataLoading && isNeededToLoadNextCompanies else { return }
         isDataLoading = true
     
-        let requestIdeal = APIManager.getAllCompanies(offset: offset).request()
-        networkFetcher.fetchCompanies(with: requestIdeal) { result in
+        let request = APIManager.getAllCompanies(offset: offset).request()
+        networkFetcher.fetchCompanies(with: request) { result in
             
             defer { self.isDataLoading = false }
             
