@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class ImageService {
+protocol ImageServiceProtocol {
+    func loadImage(url: String, indexPath: IndexPath, completion: @escaping (UIImage?) -> Void)
+}
+
+final class ImageService: ImageServiceProtocol {
+    
     //MARK: - Private properties
     private let cache = NSCache<NSNumber, UIImage>()
     

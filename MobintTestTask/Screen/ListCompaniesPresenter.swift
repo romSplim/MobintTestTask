@@ -13,24 +13,24 @@ protocol ListCompaniesPresenterProtocol {
 
 final class ListCompaniesPresenter: ListCompaniesPresenterProtocol {
     //MARK: - Properties
-    weak var view: ListCompaniesViewProtocol?
+    private(set) weak var view: ListCompaniesViewProtocol?
     
     //MARK: - Private properties
-    private var networkFetcher: NetworkFetcher
-    private var imageService: ImageService
+    private(set) var networkFetcher: NetworkFetcherProtocol
+    private(set) var imageService: ImageServiceProtocol
     
-    private var companies: [CompanyCard]?
+    private(set) var companies: [CompanyCard]?
     private var isDataLoading = false
     private var isNeededToLoadNextCompanies = true
     
     private var offset: Int {
         return companies?.count ?? 0
     }
-    
+   
     //MARK: - Init
     init(view: ListCompaniesViewProtocol,
-         networkFetcher: NetworkFetcher = NetworkFetcher.shared,
-         imageService: ImageService) {
+         networkFetcher: NetworkFetcherProtocol = NetworkFetcher.shared,
+         imageService: ImageServiceProtocol) {
         
         self.view = view
         self.networkFetcher = networkFetcher
@@ -54,9 +54,7 @@ final class ListCompaniesPresenter: ListCompaniesPresenterProtocol {
     }
     
     func loadInitialCompanies() {
-        let request = APIManager.getAllCompanies(offset: offset).request()
-        networkFetcher.fetchCompanies(with: request) { result in
-            
+        networkFetcher.fetchCompanies(endPoint: .getAllCompanies(offset: offset)) { result in
             switch result {
             case .success(let success):
                 self.companies = success
@@ -64,7 +62,7 @@ final class ListCompaniesPresenter: ListCompaniesPresenterProtocol {
                     self.view?.reloadTable()
                 }
             case .failure(let failure):
-                print(failure.message)
+                self.view?.presentAlert(failure.message)
             }
         }
     }
@@ -73,8 +71,7 @@ final class ListCompaniesPresenter: ListCompaniesPresenterProtocol {
         guard !isDataLoading && isNeededToLoadNextCompanies else { return }
         isDataLoading = true
     
-        let request = APIManager.getAllCompanies(offset: offset).request()
-        networkFetcher.fetchCompanies(with: request) { result in
+        networkFetcher.fetchCompanies(endPoint: .getAllCompanies(offset: offset)) { result in
             
             defer { self.isDataLoading = false }
             

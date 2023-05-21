@@ -21,8 +21,8 @@ final class CardCell: UITableViewCell {
     private let loyaltyView = LoyaltyView()
     private let actionView = ActionView()
     
-    private var firstSeporator = UIView()
-    private var secondSeporator = UIView()
+    private var firstSeporator: UIView = .createSeparator()
+    private var secondSeporator: UIView = .createSeparator()
     
     private lazy var stackView: UIStackView = {
         
@@ -43,9 +43,9 @@ final class CardCell: UITableViewCell {
     }()
     
     //MARK: - Init
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle,
+                  reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupSeporators()
         setupSubviews()
         setupRoundedView()
         handleButtonAction()
@@ -83,11 +83,6 @@ final class CardCell: UITableViewCell {
         roundedContainerView.backgroundColor = .white
     }
     
-    private func setupSeporators() {
-        firstSeporator.backgroundColor = .gray
-        secondSeporator.backgroundColor = .gray
-    }
-    
     private func setupSubviews() {
         contentView.addSubview(roundedContainerView)
         roundedContainerView.addSubview(stackView)
@@ -111,7 +106,7 @@ final class CardCell: UITableViewCell {
 
 //MARK: - ButtonType
 extension CardCell {
-    public enum ButtonType: Int {
+    enum ButtonType: Int {
         case sight = 1, trash, more
         
         var name: String {

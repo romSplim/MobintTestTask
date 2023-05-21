@@ -8,8 +8,9 @@
 import UIKit
 
 extension UIView {
-    func createSeparator(with color: UIColor = .gray) -> UIView {
+    static func createSeparator(with color: UIColor = .gray) -> UIView {
         let separator = UIView()
+        separator.translatesAutoresizingMaskIntoConstraints = false
         separator.backgroundColor = color
         return separator
     }

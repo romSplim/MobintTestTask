@@ -14,8 +14,8 @@ protocol ListCompaniesViewProtocol: AnyObject {
     func presentAlert(_ message: String)
 }
 
-fileprivate enum Constants {
-   static let screenTitle = "Управление картами"
+private enum Constants {
+    static let screenTitle = "Управление картами"
 }
 
 final class ListCompaniesView: UIViewController {

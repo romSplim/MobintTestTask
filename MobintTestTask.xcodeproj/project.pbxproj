@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		952BA6F52A1A542C00C57779 /* MockListCompaniesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BA6F42A1A542C00C57779 /* MockListCompaniesView.swift */; };
+		952BA6F72A1A924400C57779 /* MockImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BA6F62A1A924400C57779 /* MockImageService.swift */; };
+		952BA6F92A1A97FD00C57779 /* MockNetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952BA6F82A1A97FD00C57779 /* MockNetworkFetcher.swift */; };
+		958AFC7D2A18F7ED002A1743 /* ListCompaniesPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958AFC7C2A18F7ED002A1743 /* ListCompaniesPresenterTest.swift */; };
 		95C57BE12A15F535003BB217 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57BE02A15F535003BB217 /* UIViewController+Extension.swift */; };
 		95C57BE72A160883003BB217 /* LoadingHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C57BE62A160883003BB217 /* LoadingHeaderFooterView.swift */; };
 		95DB60842A0A26D2002A43B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB60832A0A26D2002A43B2 /* AppDelegate.swift */; };
@@ -36,7 +40,22 @@
 		95F438172A10F19F006F3EC2 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F438162A10F19F006F3EC2 /* ErrorModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		958AFC762A18F4AB002A1743 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95DB60782A0A26D2002A43B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95DB607F2A0A26D2002A43B2;
+			remoteInfo = MobintTestTask;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		952BA6F42A1A542C00C57779 /* MockListCompaniesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListCompaniesView.swift; sourceTree = "<group>"; };
+		952BA6F62A1A924400C57779 /* MockImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageService.swift; sourceTree = "<group>"; };
+		952BA6F82A1A97FD00C57779 /* MockNetworkFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkFetcher.swift; sourceTree = "<group>"; };
+		958AFC722A18F4AB002A1743 /* MobintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		958AFC7C2A18F7ED002A1743 /* ListCompaniesPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCompaniesPresenterTest.swift; sourceTree = "<group>"; };
 		95C57BE02A15F535003BB217 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		95C57BE62A160883003BB217 /* LoadingHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHeaderFooterView.swift; sourceTree = "<group>"; };
 		95DB60802A0A26D2002A43B2 /* MobintTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobintTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +88,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		958AFC6F2A18F4AB002A1743 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95DB607D2A0A26D2002A43B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,6 +105,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		952BA6F32A1A53AB00C57779 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				952BA6F42A1A542C00C57779 /* MockListCompaniesView.swift */,
+				952BA6F62A1A924400C57779 /* MockImageService.swift */,
+				952BA6F82A1A97FD00C57779 /* MockNetworkFetcher.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		958AFC732A18F4AB002A1743 /* MobintTests */ = {
+			isa = PBXGroup;
+			children = (
+				952BA6F32A1A53AB00C57779 /* Mock */,
+				958AFC7B2A18F79A002A1743 /* ListCompaniesModule */,
+			);
+			path = MobintTests;
+			sourceTree = "<group>";
+		};
+		958AFC7B2A18F79A002A1743 /* ListCompaniesModule */ = {
+			isa = PBXGroup;
+			children = (
+				958AFC7C2A18F7ED002A1743 /* ListCompaniesPresenterTest.swift */,
+			);
+			path = ListCompaniesModule;
+			sourceTree = "<group>";
+		};
 		95C57BE22A15FFED003BB217 /* CardCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				95DB60822A0A26D2002A43B2 /* MobintTestTask */,
+				958AFC732A18F4AB002A1743 /* MobintTests */,
 				95DB60812A0A26D2002A43B2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				95DB60802A0A26D2002A43B2 /* MobintTestTask.app */,
+				958AFC722A18F4AB002A1743 /* MobintTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,6 +276,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		958AFC712A18F4AB002A1743 /* MobintTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 958AFC782A18F4AB002A1743 /* Build configuration list for PBXNativeTarget "MobintTests" */;
+			buildPhases = (
+				958AFC6E2A18F4AB002A1743 /* Sources */,
+				958AFC6F2A18F4AB002A1743 /* Frameworks */,
+				958AFC702A18F4AB002A1743 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				958AFC772A18F4AB002A1743 /* PBXTargetDependency */,
+			);
+			name = MobintTests;
+			productName = MobintTests;
+			productReference = 958AFC722A18F4AB002A1743 /* MobintTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		95DB607F2A0A26D2002A43B2 /* MobintTestTask */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95DB60942A0A26D3002A43B2 /* Build configuration list for PBXNativeTarget "MobintTestTask" */;
@@ -248,6 +321,11 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					958AFC712A18F4AB002A1743 = {
+						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
+						TestTargetID = 95DB607F2A0A26D2002A43B2;
+					};
 					95DB607F2A0A26D2002A43B2 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -267,11 +345,19 @@
 			projectRoot = "";
 			targets = (
 				95DB607F2A0A26D2002A43B2 /* MobintTestTask */,
+				958AFC712A18F4AB002A1743 /* MobintTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		958AFC702A18F4AB002A1743 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95DB607E2A0A26D2002A43B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,6 +371,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		958AFC6E2A18F4AB002A1743 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				952BA6F92A1A97FD00C57779 /* MockNetworkFetcher.swift in Sources */,
+				952BA6F52A1A542C00C57779 /* MockListCompaniesView.swift in Sources */,
+				958AFC7D2A18F7ED002A1743 /* ListCompaniesPresenterTest.swift in Sources */,
+				952BA6F72A1A924400C57779 /* MockImageService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95DB607C2A0A26D2002A43B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,6 +415,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		958AFC772A18F4AB002A1743 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95DB607F2A0A26D2002A43B2 /* MobintTestTask */;
+			targetProxy = 958AFC762A18F4AB002A1743 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		95DB60892A0A26D2002A43B2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -338,6 +443,63 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		958AFC792A18F4AB002A1743 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR25TA593;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apps.MobintTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobintTestTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MobintTestTask";
+			};
+			name = Debug;
+		};
+		958AFC7A2A18F4AB002A1743 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9JR25TA593;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apps.MobintTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobintTestTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MobintTestTask";
+			};
+			name = Release;
+		};
 		95DB60922A0A26D3002A43B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -511,6 +673,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		958AFC782A18F4AB002A1743 /* Build configuration list for PBXNativeTarget "MobintTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				958AFC792A18F4AB002A1743 /* Debug */,
+				958AFC7A2A18F4AB002A1743 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		95DB607B2A0A26D2002A43B2 /* Build configuration list for PBXProject "MobintTestTask" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

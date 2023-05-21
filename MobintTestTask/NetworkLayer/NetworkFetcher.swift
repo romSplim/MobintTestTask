@@ -7,14 +7,19 @@
 
 import Foundation
 
-final class NetworkFetcher {
+protocol NetworkFetcherProtocol {
+    func fetchCompanies(endPoint: APIManager, completion: @escaping (Result<[CompanyCard], NetworkError>) -> Void)
+}
+
+final class NetworkFetcher: NetworkFetcherProtocol {
     
     static let shared = NetworkFetcher()
     //MARK: - Private init
     private init() {}
     
     //MARK: - Methods
-    func fetchCompanies(with request: URLRequest, completion: @escaping (Result<[CompanyCard], NetworkError>) -> Void) {
+    func fetchCompanies(endPoint: APIManager, completion: @escaping (Result<[CompanyCard], NetworkError>) -> Void) {
+        let request = endPoint.request()
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse {
